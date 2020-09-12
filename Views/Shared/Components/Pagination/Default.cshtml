@@ -1,0 +1,25 @@
+﻿@model CoranaRegistration.Models.Pagination
+<hr />
+<p> På nuværende tidspunkt er @Model.Items personer registreret.   </p>
+<p> Her af er @Model.Positives test positiv for covid19 virus.   </p>
+<span style="margin-right:10px; ">Side @ViewBag.PageNumber/@Model.Pages        </span> 
+
+@for (int index = 0; index < Model.Pages; index++)
+{
+    var pageNumber = index + 1;
+    if (pageNumber == @ViewBag.PageNumber)
+    {
+        <span style="height:20px; width:20px; background-color:orange;margin-right:4px; ">
+            [@Html.ActionLink(pageNumber.ToString(), "Index", new { page = pageNumber })]
+        </span>
+    }
+    else
+    {
+        <span style="height:20px; width:20px; background-color:white ;margin-right:4px; ">
+            @Html.ActionLink(pageNumber.ToString(), "Index", new { page = pageNumber })
+        </span>
+    }
+
+}
+
+

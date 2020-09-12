@@ -1,0 +1,63 @@
+﻿@model IEnumerable<CoranaRegistration.Models.PersonRegistration>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Test resultater</h1>
+
+<p>
+    <a asp-action="Create">Registre dig her</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.fullname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cpr)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.adress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.zipcode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.testresult)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fullname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cpr)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.adress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.zipcode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.testresult)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@await Component.InvokeAsync(nameof(Pagination ))
+

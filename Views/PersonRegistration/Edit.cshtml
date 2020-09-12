@@ -1,0 +1,61 @@
+﻿@model CoranaRegistration.Models.PersonRegistration
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>PersonRegistration</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group" hidden>
+                <label asp-for="id" class="control-label"></label>
+                <input asp-for="id" class="form-control" />
+                <span asp-validation-for="id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fullname" class="control-label"></label>
+                <input asp-for="fullname" class="form-control" />
+                <span asp-validation-for="fullname" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="cpr" class="control-label"></label>
+                <input asp-for="cpr" class="form-control" />
+                <span asp-validation-for="cpr" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="adress" class="control-label"></label>
+                <input asp-for="adress" class="form-control" />
+                <span asp-validation-for="adress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="zipcode" class="control-label"></label>
+                <input asp-for="zipcode" class="form-control" />
+                <span asp-validation-for="zipcode" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="testresult" /> @Html.DisplayNameFor(model => model.testresult)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Tilbage</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
